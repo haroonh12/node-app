@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const tickets = require("../data/tickets.json");
+const fs = require("fs");
+const path = require("path");
 
 router.get("/", (req, res) => {
   res.render("index");
@@ -11,6 +12,8 @@ router.get("/create-ticket", (req, res) => {
 });
 
 router.get("/tickets", (req, res) => {
+  const filePath = path.join(__dirname, "../data/tickets.json");
+  const tickets = JSON.parse(fs.readFileSync(filePath, "utf8"));
   res.render("tickets", { tickets });
 });
 

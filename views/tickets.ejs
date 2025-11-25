@@ -1,15 +1,39 @@
-<h2>All Tickets</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Tickets</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="tickets-body">
 
-<% if (tickets.length === 0) { %>
-  <p>No tickets yet.</p>
-<% } else { %>
-  <ul>
-    <% tickets.forEach(t => { %>
-      <li>
-        <strong><%= t.title %></strong><br>
-        <%= t.description %><br>
-        <small><%= t.createdAt %></small>
-      </li>
-    <% }) %>
-  </ul>
-<% } %>
+  <div class="tickets-container">
+    <h2>All Support Tickets</h2>
+    <p class="form-sub">Tickets submitted by users</p>
+
+    <% if (tickets.length === 0) { %>
+      <div class="empty-box">
+        <p>No tickets available.</p>
+      </div>
+    <% } else { %>
+
+      <div class="ticket-list">
+        <% tickets.forEach(t => { %>
+          <div class="ticket-card">
+            <h3><%= t.title %></h3>
+            <p><%= t.description %></p>
+            <div class="ticket-meta">
+              <small>Created: <%= new Date(t.createdAt).toLocaleString() %></small>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+    <% } %>
+
+    <div class="back-link">
+      <a href="/">⬅ Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,6 +1,32 @@
-<h2>Create a Ticket</h2>
-<form method="POST" action="/api/create">
-  <input type="text" name="title" placeholder="Title" required /><br>
-  <textarea name="description" placeholder="Description" required></textarea><br>
-  <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Ticket</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="form-body">
+
+  <div class="form-container">
+    <h2>Create a New Support Ticket</h2>
+    <p class="form-sub">Provide the issue details below.</p>
+
+    <div class="form-card">
+      <form method="POST" action="/api/create">
+        
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Brief issue title..." required />
+
+        <label>Description</label>
+        <textarea name="description" placeholder="Describe the issue in detail..." rows="5" required></textarea>
+
+        <button type="submit" class="submit-btn">Submit Ticket</button>
+      </form>
+    </div>
+
+    <div class="back-link">
+      <a href="/">⬅ Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>
