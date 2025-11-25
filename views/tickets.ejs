@@ -1,0 +1,15 @@
+<h2>All Tickets</h2>
+
+<% if (tickets.length === 0) { %>
+  <p>No tickets yet.</p>
+<% } else { %>
+  <ul>
+    <% tickets.forEach(t => { %>
+      <li>
+        <strong><%= t.title %></strong><br>
+        <%= t.description %><br>
+        <small><%= t.createdAt %></small>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
